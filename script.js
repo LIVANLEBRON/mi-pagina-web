@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Pop-up de bienvenida
     setTimeout(function() {
         Swal.fire({
             title: '¡Bienvenido a Urbaez Asesoría Contable y de Datos!',
@@ -9,6 +10,22 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }, 3000);
 
+    // Menú hamburguesa para móviles
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+
+    menuToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+    });
+
+    // Cerrar menú al hacer clic en un enlace
+    navMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+        });
+    });
+
+    // Formulario de contacto
     const contactForm = document.querySelector('.contact form');
     if (contactForm) {
         contactForm.addEventListener('submit', function(event) {
@@ -78,6 +95,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Desplazamiento suave
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
